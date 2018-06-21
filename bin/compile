@@ -92,3 +92,6 @@ EOF
 
 export HOME=$BUILD_DIR
 sh $HOME/.profile.d/000_dpkg.sh
+
+cd $BUILD_DIR
+find ./ -name '*.so*' -exec cp -nprv '{}' ./ ';'
