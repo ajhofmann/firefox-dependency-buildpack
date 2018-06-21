@@ -8,8 +8,8 @@ set -e
 # set -x
 
 # parse and derive params
-BUILD_DIR=$1
-CACHE_DIR=$1
+BUILD_DIR="app/vendor/firefox/"
+CACHE_DIR=$2
 ENV_DIR=$3
 
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
@@ -72,7 +72,7 @@ mkdir -p $BUILD_DIR/.apt
 
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
-  dpkg -x $DEB $BUILD_DIR/.dpkg/
+  dpkg -x $DEB $BUILD_DIR/
 done
 
 
